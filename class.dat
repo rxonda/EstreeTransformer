@@ -1,0 +1,18 @@
+var Blast = require("./Blast.ts");
+
+class Person extends Blast {
+
+    constructor(name, address) {
+        super();
+        this.start = 0;
+        this.name = name;
+        this.address = address;
+        this.getNameAndAddress.bind();
+    }
+
+    getNameAndAddress() {
+        return this.name + ", " + this.address;
+    }
+}
+
+module.exports = Person;

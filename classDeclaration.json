@@ -1,0 +1,508 @@
+Printing: Program
+Node {
+  type: 'Program',
+  start: 0,
+  end: 543,
+  body: [ Node {
+       type: 'ClassDeclaration',
+       start: 348,
+       end: 542,
+       id: [Node
+      ],
+       superClass: null,
+       body: [Node
+      ]
+    }
+  ],
+  sourceType: 'module'
+}
+Printing: ClassDeclaration
+Node {
+  type: 'ClassDeclaration',
+  start: 348,
+  end: 542,
+  id:
+   Node { type: 'Identifier', start: 354, end: 360, name: 'Person'
+  },
+  superClass: null,
+  body:
+   Node {
+     type: 'ClassBody',
+     start: 361,
+     end: 542,
+     body: [
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 354, end: 360, name: 'Person'
+}
+Printing: ClassBody
+Node {
+  type: 'ClassBody',
+  start: 361,
+  end: 542,
+  body: [ Node {
+       type: 'MethodDefinition',
+       start: 367,
+       end: 459,
+       computed: false,
+       key: [Node
+      ],
+       static: false,
+       kind: 'constructor',
+       value: [Node
+      ]
+    },
+     Node {
+       type: 'MethodDefinition',
+       start: 465,
+       end: 540,
+       computed: false,
+       key: [Node
+      ],
+       static: false,
+       kind: 'method',
+       value: [Node
+      ]
+    }
+  ]
+}
+Printing: MethodDefinition
+Node {
+  type: 'MethodDefinition',
+  start: 367,
+  end: 459,
+  computed: false,
+  key:
+   Node { type: 'Identifier', start: 367, end: 378, name: 'constructor'
+  },
+  static: false,
+  kind: 'constructor',
+  value:
+   Node {
+     type: 'FunctionExpression',
+     start: 378,
+     end: 459,
+     id: null,
+     generator: false,
+     expression: false,
+     async: false,
+     params: [
+      [Node
+      ],
+      [Node
+      ]
+    ],
+     body:
+      Node { type: 'BlockStatement', start: 394, end: 459, body: [Array
+      ]
+    }
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 367, end: 378, name: 'constructor'
+}
+Printing: FunctionExpression
+Node {
+  type: 'FunctionExpression',
+  start: 378,
+  end: 459,
+  id: null,
+  generator: false,
+  expression: false,
+  async: false,
+  params: [ Node { type: 'Identifier', start: 379, end: 383, name: 'name'
+    },
+     Node { type: 'Identifier', start: 385, end: 392, name: 'address'
+    }
+  ],
+  body:
+   Node {
+     type: 'BlockStatement',
+     start: 394,
+     end: 459,
+     body: [
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 379, end: 383, name: 'name'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 385, end: 392, name: 'address'
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 394,
+  end: 459,
+  body: [ Node {
+       type: 'ExpressionStatement',
+       start: 404,
+       end: 421,
+       expression: [Node
+      ]
+    },
+     Node {
+       type: 'ExpressionStatement',
+       start: 430,
+       end: 453,
+       expression: [Node
+      ]
+    }
+  ]
+}
+Printing: ExpressionStatement
+Node {
+  type: 'ExpressionStatement',
+  start: 404,
+  end: 421,
+  expression:
+   Node {
+     type: 'AssignmentExpression',
+     start: 404,
+     end: 420,
+     operator: '=',
+     left:
+      Node {
+        type: 'MemberExpression',
+        start: 404,
+        end: 413,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    },
+     right:
+      Node { type: 'Identifier', start: 416, end: 420, name: 'name'
+    }
+  }
+}
+Printing: AssignmentExpression
+Node {
+  type: 'AssignmentExpression',
+  start: 404,
+  end: 420,
+  operator: '=',
+  left:
+   Node {
+     type: 'MemberExpression',
+     start: 404,
+     end: 413,
+     object: Node { type: 'ThisExpression', start: 404, end: 408
+    },
+     property:
+      Node { type: 'Identifier', start: 409, end: 413, name: 'name'
+    },
+     computed: false
+  },
+  right:
+   Node { type: 'Identifier', start: 416, end: 420, name: 'name'
+  }
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 404,
+  end: 413,
+  object: Node { type: 'ThisExpression', start: 404, end: 408
+  },
+  property:
+   Node { type: 'Identifier', start: 409, end: 413, name: 'name'
+  },
+  computed: false
+}
+Printing: ThisExpression
+Node { type: 'ThisExpression', start: 404, end: 408
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 409, end: 413, name: 'name'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 416, end: 420, name: 'name'
+}
+Printing: ExpressionStatement
+Node {
+  type: 'ExpressionStatement',
+  start: 430,
+  end: 453,
+  expression:
+   Node {
+     type: 'AssignmentExpression',
+     start: 430,
+     end: 452,
+     operator: '=',
+     left:
+      Node {
+        type: 'MemberExpression',
+        start: 430,
+        end: 442,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    },
+     right:
+      Node { type: 'Identifier', start: 445, end: 452, name: 'address'
+    }
+  }
+}
+Printing: AssignmentExpression
+Node {
+  type: 'AssignmentExpression',
+  start: 430,
+  end: 452,
+  operator: '=',
+  left:
+   Node {
+     type: 'MemberExpression',
+     start: 430,
+     end: 442,
+     object: Node { type: 'ThisExpression', start: 430, end: 434
+    },
+     property:
+      Node { type: 'Identifier', start: 435, end: 442, name: 'address'
+    },
+     computed: false
+  },
+  right:
+   Node { type: 'Identifier', start: 445, end: 452, name: 'address'
+  }
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 430,
+  end: 442,
+  object: Node { type: 'ThisExpression', start: 430, end: 434
+  },
+  property:
+   Node { type: 'Identifier', start: 435, end: 442, name: 'address'
+  },
+  computed: false
+}
+Printing: ThisExpression
+Node { type: 'ThisExpression', start: 430, end: 434
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 435, end: 442, name: 'address'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 445, end: 452, name: 'address'
+}
+Printing: MethodDefinition
+Node {
+  type: 'MethodDefinition',
+  start: 465,
+  end: 540,
+  computed: false,
+  key:
+   Node {
+     type: 'Identifier',
+     start: 465,
+     end: 482,
+     name: 'getNameAndAddress'
+  },
+  static: false,
+  kind: 'method',
+  value:
+   Node {
+     type: 'FunctionExpression',
+     start: 482,
+     end: 540,
+     id: null,
+     generator: false,
+     expression: false,
+     async: false,
+     params: [],
+     body:
+      Node { type: 'BlockStatement', start: 485, end: 540, body: [Array
+      ]
+    }
+  }
+}
+Printing: Identifier
+Node {
+  type: 'Identifier',
+  start: 465,
+  end: 482,
+  name: 'getNameAndAddress'
+}
+Printing: FunctionExpression
+Node {
+  type: 'FunctionExpression',
+  start: 482,
+  end: 540,
+  id: null,
+  generator: false,
+  expression: false,
+  async: false,
+  params: [],
+  body:
+   Node { type: 'BlockStatement', start: 485, end: 540, body: [
+      [Node
+      ]
+    ]
+  }
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 485,
+  end: 540,
+  body: [ Node {
+       type: 'ReturnStatement',
+       start: 495,
+       end: 534,
+       argument: [Node
+      ]
+    }
+  ]
+}
+Printing: ReturnStatement
+Node {
+  type: 'ReturnStatement',
+  start: 495,
+  end: 534,
+  argument:
+   Node {
+     type: 'BinaryExpression',
+     start: 502,
+     end: 533,
+     left:
+      Node {
+        type: 'BinaryExpression',
+        start: 502,
+        end: 518,
+        left: [Node
+      ],
+        operator: '+',
+        right: [Node
+      ]
+    },
+     operator: '+',
+     right:
+      Node {
+        type: 'MemberExpression',
+        start: 521,
+        end: 533,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    }
+  }
+}
+Printing: BinaryExpression
+Node {
+  type: 'BinaryExpression',
+  start: 502,
+  end: 533,
+  left:
+   Node {
+     type: 'BinaryExpression',
+     start: 502,
+     end: 518,
+     left:
+      Node {
+        type: 'MemberExpression',
+        start: 502,
+        end: 511,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    },
+     operator: '+',
+     right:
+      Node { type: 'Literal', start: 514, end: 518, value: ', ', raw: '", "'
+    }
+  },
+  operator: '+',
+  right:
+   Node {
+     type: 'MemberExpression',
+     start: 521,
+     end: 533,
+     object: Node { type: 'ThisExpression', start: 521, end: 525
+    },
+     property:
+      Node { type: 'Identifier', start: 526, end: 533, name: 'address'
+    },
+     computed: false
+  }
+}
+Printing: BinaryExpression
+Node {
+  type: 'BinaryExpression',
+  start: 502,
+  end: 518,
+  left:
+   Node {
+     type: 'MemberExpression',
+     start: 502,
+     end: 511,
+     object: Node { type: 'ThisExpression', start: 502, end: 506
+    },
+     property:
+      Node { type: 'Identifier', start: 507, end: 511, name: 'name'
+    },
+     computed: false
+  },
+  operator: '+',
+  right:
+   Node { type: 'Literal', start: 514, end: 518, value: ', ', raw: '", "'
+  }
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 502,
+  end: 511,
+  object: Node { type: 'ThisExpression', start: 502, end: 506
+  },
+  property:
+   Node { type: 'Identifier', start: 507, end: 511, name: 'name'
+  },
+  computed: false
+}
+Printing: ThisExpression
+Node { type: 'ThisExpression', start: 502, end: 506
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 507, end: 511, name: 'name'
+}
+Printing: Literal
+Node { type: 'Literal', start: 514, end: 518, value: ', ', raw: '", "'
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 521,
+  end: 533,
+  object: Node { type: 'ThisExpression', start: 521, end: 525
+  },
+  property:
+   Node { type: 'Identifier', start: 526, end: 533, name: 'address'
+  },
+  computed: false
+}
+Printing: ThisExpression
+Node { type: 'ThisExpression', start: 521, end: 525
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 526, end: 533, name: 'address'
+}

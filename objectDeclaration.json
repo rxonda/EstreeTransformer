@@ -1,0 +1,733 @@
+Printing: Program
+Node {
+  type: 'Program',
+  start: 0,
+  end: 543,
+  body: [ Node {
+       type: 'VariableDeclaration',
+       start: 1,
+       end: 341,
+       declarations: [Array
+      ],
+       kind: 'var'
+    }
+  ],
+  sourceType: 'module'
+}
+Printing: VariableDeclaration
+Node {
+  type: 'VariableDeclaration',
+  start: 1,
+  end: 341,
+  declarations: [ Node {
+       type: 'VariableDeclarator',
+       start: 5,
+       end: 341,
+       id: [Node
+      ],
+       init: [Node
+      ]
+    }
+  ],
+  kind: 'var'
+}
+Printing: VariableDeclarator
+Node {
+  type: 'VariableDeclarator',
+  start: 5,
+  end: 341,
+  id:
+   Node {
+     type: 'Identifier',
+     start: 5,
+     end: 23,
+     name: 'blastOfTheUniverse'
+  },
+  init:
+   Node {
+     type: 'ObjectExpression',
+     start: 26,
+     end: 341,
+     properties: [
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: Identifier
+{ type: 'Identifier', name: 'foo_blastOfTheUniverse'
+}
+Printing: ObjectExpression
+Node {
+  type: 'ObjectExpression',
+  start: 26,
+  end: 341,
+  properties: [ Node {
+       type: 'Property',
+       start: 32,
+       end: 162,
+       method: false,
+       shorthand: false,
+       computed: false,
+       key: [Node
+      ],
+       value: [Node
+      ],
+       kind: 'init'
+    },
+     Node {
+       type: 'Property',
+       start: 168,
+       end: 339,
+       method: false,
+       shorthand: false,
+       computed: false,
+       key: [Node
+      ],
+       value: [Node
+      ],
+       kind: 'init'
+    }
+  ]
+}
+Printing: Property
+Node {
+  type: 'Property',
+  start: 32,
+  end: 162,
+  method: false,
+  shorthand: false,
+  computed: false,
+  key:
+   Node { type: 'Identifier', start: 32, end: 37, name: 'blast'
+  },
+  value:
+   Node {
+     type: 'FunctionExpression',
+     start: 39,
+     end: 162,
+     id: null,
+     generator: false,
+     expression: false,
+     async: false,
+     params: [],
+     body:
+      Node { type: 'BlockStatement', start: 50, end: 162, body: [Array
+      ]
+    }
+  },
+  kind: 'init'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 32, end: 37, name: 'blast'
+}
+Printing: FunctionExpression
+Node {
+  type: 'FunctionExpression',
+  start: 39,
+  end: 162,
+  id: null,
+  generator: false,
+  expression: false,
+  async: false,
+  params: [],
+  body:
+   Node {
+     type: 'BlockStatement',
+     start: 50,
+     end: 162,
+     body: [
+      [Node
+      ],
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 50,
+  end: 162,
+  body: [ Node {
+       type: 'VariableDeclaration',
+       start: 60,
+       end: 72,
+       declarations: [Array
+      ],
+       kind: 'var'
+    },
+     Node {
+       type: 'IfStatement',
+       start: 81,
+       end: 135,
+       test: [Node
+      ],
+       consequent: [Node
+      ],
+       alternate: null
+    },
+     Node {
+       type: 'ReturnStatement',
+       start: 144,
+       end: 156,
+       argument: [Node
+      ]
+    }
+  ]
+}
+Printing: VariableDeclaration
+Node {
+  type: 'VariableDeclaration',
+  start: 60,
+  end: 72,
+  declarations: [ Node {
+       type: 'VariableDeclarator',
+       start: 64,
+       end: 71,
+       id: [Node
+      ],
+       init: [Node
+      ]
+    }
+  ],
+  kind: 'var'
+}
+Printing: VariableDeclarator
+Node {
+  type: 'VariableDeclarator',
+  start: 64,
+  end: 71,
+  id: Node { type: 'Identifier', start: 64, end: 67, name: 'ini'
+  },
+  init:
+   Node { type: 'Literal', start: 70, end: 71, value: 2, raw: '2'
+  }
+}
+Printing: Identifier
+{ type: 'Identifier', name: 'foo_ini'
+}
+Printing: Literal
+Node { type: 'Literal', start: 70, end: 71, value: 2, raw: '2'
+}
+Printing: IfStatement
+Node {
+  type: 'IfStatement',
+  start: 81,
+  end: 135,
+  test:
+   Node {
+     type: 'BinaryExpression',
+     start: 84,
+     end: 91,
+     left: Node { type: 'Identifier', start: 84, end: 87, name: 'ini'
+    },
+     operator: '<',
+     right:
+      Node { type: 'Literal', start: 90, end: 91, value: 3, raw: '3'
+    }
+  },
+  consequent:
+   Node { type: 'BlockStatement', start: 93, end: 135, body: [
+      [Node
+      ]
+    ]
+  },
+  alternate: null
+}
+Printing: BinaryExpression
+Node {
+  type: 'BinaryExpression',
+  start: 84,
+  end: 91,
+  left: Node { type: 'Identifier', start: 84, end: 87, name: 'ini'
+  },
+  operator: '<',
+  right:
+   Node { type: 'Literal', start: 90, end: 91, value: 3, raw: '3'
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 84, end: 87, name: 'ini'
+}
+Printing: Literal
+Node { type: 'Literal', start: 90, end: 91, value: 3, raw: '3'
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 93,
+  end: 135,
+  body: [ Node {
+       type: 'ExpressionStatement',
+       start: 103,
+       end: 125,
+       expression: [Node
+      ]
+    }
+  ]
+}
+Printing: ExpressionStatement
+Node {
+  type: 'ExpressionStatement',
+  start: 103,
+  end: 125,
+  expression:
+   Node {
+     type: 'CallExpression',
+     start: 103,
+     end: 124,
+     callee:
+      Node {
+        type: 'MemberExpression',
+        start: 103,
+        end: 114,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    },
+     arguments: [
+      [Node
+      ]
+    ]
+  }
+}
+Printing: CallExpression
+Node {
+  type: 'CallExpression',
+  start: 103,
+  end: 124,
+  callee:
+   Node {
+     type: 'MemberExpression',
+     start: 103,
+     end: 114,
+     object:
+      Node { type: 'Identifier', start: 103, end: 110, name: 'console'
+    },
+     property:
+      Node { type: 'Identifier', start: 111, end: 114, name: 'log'
+    },
+     computed: false
+  },
+  arguments: [ Node {
+       type: 'Literal',
+       start: 115,
+       end: 123,
+       value: 'blast!',
+       raw: '"blast!"'
+    }
+  ]
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 103,
+  end: 114,
+  object:
+   Node { type: 'Identifier', start: 103, end: 110, name: 'console'
+  },
+  property:
+   Node { type: 'Identifier', start: 111, end: 114, name: 'log'
+  },
+  computed: false
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 103, end: 110, name: 'console'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 111, end: 114, name: 'log'
+}
+Printing: Literal
+Node {
+  type: 'Literal',
+  start: 115,
+  end: 123,
+  value: 'blast!',
+  raw: '"blast!"'
+}
+Printing: ReturnStatement
+Node {
+  type: 'ReturnStatement',
+  start: 144,
+  end: 156,
+  argument:
+   Node { type: 'Literal', start: 151, end: 155, value: true, raw: 'true'
+  }
+}
+Printing: Literal
+Node { type: 'Literal', start: 151, end: 155, value: true, raw: 'true'
+}
+Printing: Property
+Node {
+  type: 'Property',
+  start: 168,
+  end: 339,
+  method: false,
+  shorthand: false,
+  computed: false,
+  key:
+   Node {
+     type: 'Identifier',
+     start: 168,
+     end: 181,
+     name: 'ofTheUniverse'
+  },
+  value:
+   Node {
+     type: 'FunctionExpression',
+     start: 183,
+     end: 339,
+     id: null,
+     generator: false,
+     expression: false,
+     async: false,
+     params: [
+      [Node
+      ]
+    ],
+     body:
+      Node { type: 'BlockStatement', start: 197, end: 339, body: [Array
+      ]
+    }
+  },
+  kind: 'init'
+}
+Printing: Identifier
+Node {
+  type: 'Identifier',
+  start: 168,
+  end: 181,
+  name: 'ofTheUniverse'
+}
+Printing: FunctionExpression
+Node {
+  type: 'FunctionExpression',
+  start: 183,
+  end: 339,
+  id: null,
+  generator: false,
+  expression: false,
+  async: false,
+  params: [ Node { type: 'Identifier', start: 192, end: 195, name: 'end'
+    }
+  ],
+  body:
+   Node {
+     type: 'BlockStatement',
+     start: 197,
+     end: 339,
+     body: [
+      [Node
+      ],
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 192, end: 195, name: 'end'
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 197,
+  end: 339,
+  body: [ Node {
+       type: 'VariableDeclaration',
+       start: 207,
+       end: 221,
+       declarations: [Array
+      ],
+       kind: 'var'
+    },
+     Node {
+       type: 'ForStatement',
+       start: 230,
+       end: 312,
+       init: [Node
+      ],
+       test: [Node
+      ],
+       update: [Node
+      ],
+       body: [Node
+      ]
+    },
+     Node {
+       type: 'ReturnStatement',
+       start: 321,
+       end: 333,
+       argument: [Node
+      ]
+    }
+  ]
+}
+Printing: VariableDeclaration
+Node {
+  type: 'VariableDeclaration',
+  start: 207,
+  end: 221,
+  declarations: [ Node {
+       type: 'VariableDeclarator',
+       start: 211,
+       end: 220,
+       id: [Node
+      ],
+       init: [Node
+      ]
+    }
+  ],
+  kind: 'var'
+}
+Printing: VariableDeclarator
+Node {
+  type: 'VariableDeclarator',
+  start: 211,
+  end: 220,
+  id:
+   Node { type: 'Identifier', start: 211, end: 216, name: 'start'
+  },
+  init:
+   Node { type: 'Literal', start: 219, end: 220, value: 0, raw: '0'
+  }
+}
+Printing: Identifier
+{ type: 'Identifier', name: 'foo_start'
+}
+Printing: Literal
+Node { type: 'Literal', start: 219, end: 220, value: 0, raw: '0'
+}
+Printing: ForStatement
+Node {
+  type: 'ForStatement',
+  start: 230,
+  end: 312,
+  init:
+   Node {
+     type: 'AssignmentExpression',
+     start: 234,
+     end: 239,
+     operator: '=',
+     left: Node { type: 'Identifier', start: 234, end: 235, name: 'i'
+    },
+     right:
+      Node { type: 'Literal', start: 238, end: 239, value: 0, raw: '0'
+    }
+  },
+  test:
+   Node {
+     type: 'BinaryExpression',
+     start: 241,
+     end: 248,
+     left: Node { type: 'Identifier', start: 241, end: 242, name: 'i'
+    },
+     operator: '<',
+     right:
+      Node { type: 'Identifier', start: 245, end: 248, name: 'end'
+    }
+  },
+  update:
+   Node {
+     type: 'UpdateExpression',
+     start: 250,
+     end: 253,
+     operator: '++',
+     prefix: false,
+     argument: Node { type: 'Identifier', start: 250, end: 251, name: 'i'
+    }
+  },
+  body:
+   Node { type: 'BlockStatement', start: 255, end: 312, body: [
+      [Node
+      ]
+    ]
+  }
+}
+Printing: AssignmentExpression
+Node {
+  type: 'AssignmentExpression',
+  start: 234,
+  end: 239,
+  operator: '=',
+  left: Node { type: 'Identifier', start: 234, end: 235, name: 'i'
+  },
+  right:
+   Node { type: 'Literal', start: 238, end: 239, value: 0, raw: '0'
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 234, end: 235, name: 'i'
+}
+Printing: Literal
+Node { type: 'Literal', start: 238, end: 239, value: 0, raw: '0'
+}
+Printing: BinaryExpression
+Node {
+  type: 'BinaryExpression',
+  start: 241,
+  end: 248,
+  left: Node { type: 'Identifier', start: 241, end: 242, name: 'i'
+  },
+  operator: '<',
+  right:
+   Node { type: 'Identifier', start: 245, end: 248, name: 'end'
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 241, end: 242, name: 'i'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 245, end: 248, name: 'end'
+}
+Printing: UpdateExpression
+Node {
+  type: 'UpdateExpression',
+  start: 250,
+  end: 253,
+  operator: '++',
+  prefix: false,
+  argument: Node { type: 'Identifier', start: 250, end: 251, name: 'i'
+  }
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 250, end: 251, name: 'i'
+}
+Printing: BlockStatement
+Node {
+  type: 'BlockStatement',
+  start: 255,
+  end: 312,
+  body: [ Node {
+       type: 'ExpressionStatement',
+       start: 269,
+       end: 302,
+       expression: [Node
+      ]
+    }
+  ]
+}
+Printing: ExpressionStatement
+Node {
+  type: 'ExpressionStatement',
+  start: 269,
+  end: 302,
+  expression:
+   Node {
+     type: 'CallExpression',
+     start: 269,
+     end: 301,
+     callee:
+      Node {
+        type: 'MemberExpression',
+        start: 269,
+        end: 280,
+        object: [Node
+      ],
+        property: [Node
+      ],
+        computed: false
+    },
+     arguments: [
+      [Node
+      ],
+      [Node
+      ]
+    ]
+  }
+}
+Printing: CallExpression
+Node {
+  type: 'CallExpression',
+  start: 269,
+  end: 301,
+  callee:
+   Node {
+     type: 'MemberExpression',
+     start: 269,
+     end: 280,
+     object:
+      Node { type: 'Identifier', start: 269, end: 276, name: 'console'
+    },
+     property:
+      Node { type: 'Identifier', start: 277, end: 280, name: 'log'
+    },
+     computed: false
+  },
+  arguments: [ Node {
+       type: 'Literal',
+       start: 281,
+       end: 293,
+       value: 'Start eh: ',
+       raw: '"Start eh: "'
+    },
+     Node { type: 'Identifier', start: 295, end: 300, name: 'start'
+    }
+  ]
+}
+Printing: MemberExpression
+Node {
+  type: 'MemberExpression',
+  start: 269,
+  end: 280,
+  object:
+   Node { type: 'Identifier', start: 269, end: 276, name: 'console'
+  },
+  property:
+   Node { type: 'Identifier', start: 277, end: 280, name: 'log'
+  },
+  computed: false
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 269, end: 276, name: 'console'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 277, end: 280, name: 'log'
+}
+Printing: Literal
+Node {
+  type: 'Literal',
+  start: 281,
+  end: 293,
+  value: 'Start eh: ',
+  raw: '"Start eh: "'
+}
+Printing: Identifier
+Node { type: 'Identifier', start: 295, end: 300, name: 'start'
+}
+Printing: ReturnStatement
+Node {
+  type: 'ReturnStatement',
+  start: 321,
+  end: 333,
+  argument:
+   Node { type: 'Literal', start: 328, end: 332, value: true, raw: 'true'
+  }
+}
+Printing: Literal
+Node { type: 'Literal', start: 328, end: 332, value: true, raw: 'true'
+}
+var foo_blastOfTheUniverse = {
+  blast: function () {
+    var foo_ini = 2;
+    if (foo_ini < 3) {
+      console.log("blast!");
+    }
+    return true;
+  },
+  ofTheUniverse: function (end) {
+    var foo_start = 0;
+    for (i = 0; i < end; i++) {
+      console.log("Start eh: ", foo_start);
+    }
+    return true;
+  }
+};
