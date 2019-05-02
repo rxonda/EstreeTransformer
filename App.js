@@ -189,10 +189,6 @@ visitor.accept = lang.fun.wrap(visitor.accept, (proceed, node, state, path) => {
     return node;
 });
 
-let moduleName = 'BlastOfTheUniverse';
-// let moduleName = 'Person';
-var srcFolder = 'src'
-
 const baseSourceDirectory = "js";
 const baseTargetDirectory = "src";
 
@@ -201,14 +197,14 @@ const createTargetDirectory = (path) => {
 };
 
 const convertingToTs = (path, moduleName) => {
-    var fileName = `${baseSourceDirectory}/${path.join("/")}/${moduleName}.js`;
-    fs.readFile(fileName, 'utf8', (err, content) => {
+    let jsFileName = `${baseSourceDirectory}/${path.join("/")}/${moduleName}.js`;
+    fs.readFile(jsFileName, 'utf8', (err, content) => {
         if(err) {
             console.error(err);
             throw err;
         }
-        var parsed = ast.parse(content);
-        var rewritten = visitor.accept(parsed, {name: moduleName}, []);
+        let parsed = ast.parse(content);
+        let rewritten = visitor.accept(parsed, {name: moduleName}, []);
     
         // console.log(ast.stringify(rewritten));
     
