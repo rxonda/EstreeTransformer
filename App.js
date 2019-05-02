@@ -191,23 +191,57 @@ visitor.accept = lang.fun.wrap(visitor.accept, (proceed, node, state, path) => {
 
 let moduleName = 'BlastOfTheUniverse';
 // let moduleName = 'Person';
-var fileName = `${moduleName}.js`;
+var srcFolder = 'src'
 
-fs.readFile(fileName, 'utf8', (err, content) => {
-    if(err) {
-        console.error(err);
-        throw err;
-    }
-    var srcFolder = 'src'
-    var parsed = ast.parse(content);
-    var rewritten = visitor.accept(parsed, {name: moduleName}, []);
+const baseSourceDirectory = "js";
+const baseTargetDirectory = "src";
 
-    // console.log(ast.stringify(rewritten));
+const createTargetDirectory = (path) => {
+    fs.mkdirSync(`${baseTargetDirectory}/${path.join("/")}`, {recursive: false});
+};
 
-    let tsFileName = `${srcFolder}/${moduleName}.ts`
-    fs.appendFile(tsFileName, ast.stringify(rewritten), (error) => {
-        if(error) {
-            console.err(error);
+const convertingToTs = (path, moduleName) => {
+    var fileName = `${baseSourceDirectory}/${path.join("/")}/${moduleName}.js`;
+    fs.readFile(fileName, 'utf8', (err, content) => {
+        if(err) {
+            console.error(err);
+            throw err;
         }
+        var parsed = ast.parse(content);
+        var rewritten = visitor.accept(parsed, {name: moduleName}, []);
+    
+        // console.log(ast.stringify(rewritten));
+    
+        let tsFileName = `${baseTargetDirectory}/${path.join("/")}/${moduleName}.ts`
+        fs.appendFile(tsFileName, ast.stringify(rewritten), (error) => {
+            if(error) {
+                console.err(error);
+            }
+        });
     });
-});
+};
+
+const walkDirectory = (path) => {
+    let baseFolder = `${baseSourceDirectory}/${path.join("/")}`;
+    fs.readdir(baseFolder, {"withFileTypes": true}, (err, files) => {
+        if(err) {
+            console.log(err);
+            throw err;
+        }
+        files.forEach((file) => {
+            if(file.isDirectory()) {
+                path.push(file.name);
+                createTargetDirectory(path);
+                walkDirectory(path);
+            } else {
+                if(file.name.endsWith(".js")) {
+                    console.log(`Shit! Converting ${file.name} to TypeScript!!!!`);
+                    let moduleName = file.name.replace(".js", "");
+                    convertingToTs(path, moduleName);
+                }
+            }
+        });
+    });
+};
+
+walkDirectory(new Array());
