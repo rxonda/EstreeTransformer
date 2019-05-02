@@ -1,6 +1,11 @@
-var Blast = require("./Blast.ts");
+import Blast from "./Blast.ts";
 
-class Person extends Blast {
+export default class Person extends Blast {
+    static _init_() {
+        if(origin == null) {
+            console.log("Blast!");
+        }
+    }
 
     constructor(name, address) {
         super();
@@ -14,5 +19,3 @@ class Person extends Blast {
         return this.name + ", " + this.address;
     }
 }
-
-module.exports = Person;

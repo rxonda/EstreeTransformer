@@ -1,4 +1,4 @@
-var BlastOfTheUniverse = require("./src/BlastOfTheUniverse.ts");
+import BlastOfTheUniverse from "./src/BlastOfTheUniverse";
 
 var b = new BlastOfTheUniverse();
 

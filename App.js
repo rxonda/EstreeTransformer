@@ -22,27 +22,36 @@ var nodeLogger = (node) => {
     return node;
 };
 
+const identifier = (name) => {return { type: "Identifier", name: name }};
+
 const changeToClass = (node, state) => {
     let programBody = new Array();
     node.body.forEach(varDeclarator => {
         varDeclarator.declarations.forEach(element => {
+
             let newClazz = {
                 type: "ClassDeclaration",
                 id: element.id
             };
-            // newClazz.id = lang.obj.merge(element.id, { name: state.name });
     
-            let body = {
+            let classBody = {
                 type: "ClassBody",
                 body: []
             };
 
-            newClazz.body = body;
+            newClazz.body = classBody;
+
+            let exportDefaultDeclaration = {
+                type: "ExportDefaultDeclaration",
+                declaration: newClazz
+            };
+
+            let constructorBody = new Array();
 
             let constructorDef = {
                 type: "MethodDefinition",
                 kind: "constructor",
-                key: { type: "Identifier", name: "constructor" },
+                key: identifier("constructor"),
                 static: false,
                 computed: false,
                 value: {
@@ -54,12 +63,12 @@ const changeToClass = (node, state) => {
                     params: [], // Aqui vao os Identifiers dos params
                     body: {
                         type: "BlockStatement",
-                        body: []
+                        body: constructorBody
                     }
                 }
             }
             
-            body.body.push(constructorDef);
+            classBody.body.push(constructorDef);
 
             element.init.properties.forEach(property => {
                 if(property.key.name === "$extends") {
@@ -71,37 +80,31 @@ const changeToClass = (node, state) => {
                             callee: { type: "Super" }
                         }
                     };
-                    constructorDef.value.body.body.push(superCallExp);
+                    constructorBody.push(superCallExp);
                     let superClazzName = property.value.value;
                     let superClazzPath = "./";
+
                     let importDeclaration = {
-                        type: "VariableDeclaration",
-                        kind: "var",
-                        declarations: [
+                        type: "ImportDeclaration",
+                        source: { 
+                            type: "Literal",
+                            raw: `"${superClazzPath}${superClazzName}"`,
+                            value: `${superClazzPath}${superClazzName}`
+                        },
+                        specifiers: [
                             {
-                                type: "VariableDeclarator",
-                                id: {
-                                    type: "Identifier",
-                                    name: superClazzName
-                                },
-                                init: {
-                                    type: "CallExpression",
-                                    arguments: [
-                                        {
-                                            type: "Literal",
-                                            raw: `"${superClazzPath}${superClazzName}.ts"`,
-                                            value: `${superClazzPath}${superClazzName}.ts`
-                                        }
-                                    ],
-                                    callee: { type: "Identifier", name: "require" }
-                                }
+                                type: "ImportDefaultSpecifier",
+                                local: { type: "Identifier", name: superClazzName }
                             }
                         ]
-                    }
+                    };
+
                     programBody.push(importDeclaration);
+
                     newClazz.superClass = { type: "Identifier", name: superClazzName }
                 }
-                if(property.key.name === "$members") {
+
+                if(property.key.name === "$static") {
                     property.value.properties.forEach(prop =>{
                         if(prop.value.type === 'FunctionExpression') {
                             let method = new Object();
@@ -109,7 +112,8 @@ const changeToClass = (node, state) => {
                             method.key = prop.key;
                             method.kind = "method";
                             method.value = prop.value;
-                            body.body.push(method);
+                            method.static = true;
+                            classBody.body.push(method);
                         } else {
                             let initAttr = {
                                 type: "ExpressionStatement",
@@ -126,28 +130,45 @@ const changeToClass = (node, state) => {
                                     right: prop.value
                                 }
                             }
-                            constructorDef.value.body.body.push(initAttr);
+                            constructorBody.push(initAttr);
+                        }
+                    });
+                }
+
+                if(property.key.name === "$members") {
+                    property.value.properties.forEach(prop =>{
+                        if(prop.value.type === 'FunctionExpression') {
+                            let method = new Object();
+                            method.type = "MethodDefinition";
+                            method.key = prop.key;
+                            method.kind = "method";
+                            method.value = prop.value;
+                            classBody.body.push(method);
+                        } else {
+                            let initAttr = {
+                                type: "ExpressionStatement",
+                                expression: {
+                                    type: "AssignmentExpression",
+                                    operator: "=",
+                                    left: {
+                                        type: "MemberExpression",
+                                        object: {
+                                            type: "ThisExpression"
+                                        },
+                                        property: prop.key
+                                    },
+                                    right: prop.value
+                                }
+                            }
+                            constructorBody.push(initAttr);
+                            classBody.body.push(prop.key);
                         }
                     });
                 }
             });
 
-            programBody.push(newClazz);
+            programBody.push(exportDefaultDeclaration);
 
-            let exportExpression = {
-                type: "ExpressionStatement",
-                expression: {
-                    type: "AssignmentExpression",
-                    left: {
-                        type: "MemberExpression",
-                        object: { type: "Identifier", name: "module" },
-                        property: { type: "Identifier", name: "exports" }
-                    },
-                    right: element.id,
-                    operator: "="
-                }
-            }
-            programBody.push(exportExpression);
         });
     });
     return lang.obj.merge(node, {body: programBody});
@@ -169,8 +190,8 @@ visitor.accept = lang.fun.wrap(visitor.accept, (proceed, node, state, path) => {
 });
 
 let moduleName = 'BlastOfTheUniverse';
+// let moduleName = 'Person';
 var fileName = `${moduleName}.js`;
-// var fileName = 'class.dat';
 
 fs.readFile(fileName, 'utf8', (err, content) => {
     if(err) {

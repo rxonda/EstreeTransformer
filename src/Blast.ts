@@ -1,5 +1,6 @@
-class Blast {
+export default class Blast {
     constructor() {}
+    
     blast(current) {
         console.log("Only Blast so far at " + current);
     }
@@ -11,5 +12,3 @@ class Blast {
         return true;
     }
 }
-
-module.exports = Blast;
