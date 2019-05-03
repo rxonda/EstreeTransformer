@@ -12,7 +12,6 @@ var BlastOfTheUniverse = {
 
     $members: {
         start: 0,
-        originType: null,
         reset: function() {
             this.start = 0;
         },

@@ -28,18 +28,19 @@ const changeToClass = (node, state) => {
     let programBody = new Array();
     node.body.forEach(varDeclarator => {
         varDeclarator.declarations.forEach(element => {
+    
+            let clazzName = element.id;
+
+            let classBody = [];
 
             let newClazz = {
                 type: "ClassDeclaration",
-                id: element.id
+                id: clazzName,
+                body: {
+                    type: "ClassBody",
+                    body: classBody
+                }
             };
-    
-            let classBody = {
-                type: "ClassBody",
-                body: []
-            };
-
-            newClazz.body = classBody;
 
             let exportDefaultDeclaration = {
                 type: "ExportDefaultDeclaration",
@@ -68,7 +69,9 @@ const changeToClass = (node, state) => {
                 }
             }
             
-            classBody.body.push(constructorDef);
+            classBody.push(constructorDef);
+
+            let expInit = null;
 
             element.init.properties.forEach(property => {
                 if(property.key.name === "$extends") {
@@ -107,30 +110,40 @@ const changeToClass = (node, state) => {
                 if(property.key.name === "$static") {
                     property.value.properties.forEach(prop =>{
                         if(prop.value.type === 'FunctionExpression') {
-                            let method = new Object();
-                            method.type = "MethodDefinition";
-                            method.key = prop.key;
-                            method.kind = "method";
-                            method.value = prop.value;
-                            method.static = true;
-                            classBody.body.push(method);
+                            let methodIdentifier = (prop.key.name === "_init_") ? identifier("initialize") : prop.key;
+                            let method = {
+                                type: "MethodDefinition",
+                                key: methodIdentifier,
+                                kind: "method",
+                                value: prop.value,
+                                static: true
+                            };
+
+                            expInit = (prop.key.name === "_init_") ? {
+                                type: "ExpressionStatement",
+                                expression: {
+                                    type: "CallExpression",
+                                    arguments: [],
+                                    callee: {
+                                        type: "MemberExpression",
+                                        object: identifier(clazzName.name),
+                                        property: identifier("initialize")
+                                    }
+                                }
+                            } : null;
+                            
+                            classBody.push(method);
                         } else {
                             let initAttr = {
                                 type: "ExpressionStatement",
                                 expression: {
                                     type: "AssignmentExpression",
                                     operator: "=",
-                                    left: {
-                                        type: "MemberExpression",
-                                        object: {
-                                            type: "ThisExpression"
-                                        },
-                                        property: prop.key
-                                    },
+                                    left: prop.key,
                                     right: prop.value
                                 }
                             }
-                            constructorBody.push(initAttr);
+                            classBody.push(initAttr);
                         }
                     });
                 }
@@ -138,37 +151,50 @@ const changeToClass = (node, state) => {
                 if(property.key.name === "$members") {
                     property.value.properties.forEach(prop =>{
                         if(prop.value.type === 'FunctionExpression') {
-                            let method = new Object();
-                            method.type = "MethodDefinition";
-                            method.key = prop.key;
-                            method.kind = "method";
-                            method.value = prop.value;
-                            classBody.body.push(method);
+                            let method = {
+                                type: "MethodDefinition",
+                                key: prop.key,
+                                kind: "method",
+                                value: prop.value
+                            };
+                            
+                            classBody.push(method);
                         } else {
-                            let initAttr = {
+                            // let initAttr = {
+                            //     type: "ExpressionStatement",
+                            //     expression: {
+                            //         type: "AssignmentExpression",
+                            //         operator: "=",
+                            //         left: {
+                            //             type: "MemberExpression",
+                            //             object: {
+                            //                 type: "ThisExpression"
+                            //             },
+                            //             property: prop.key
+                            //         },
+                            //         right: prop.value
+                            //     }
+                            // }
+                            // constructorBody.push(initAttr);
+                            // classBody.push(prop.key);
+                            classBody.push({
                                 type: "ExpressionStatement",
                                 expression: {
                                     type: "AssignmentExpression",
                                     operator: "=",
-                                    left: {
-                                        type: "MemberExpression",
-                                        object: {
-                                            type: "ThisExpression"
-                                        },
-                                        property: prop.key
-                                    },
+                                    left: prop.key,
                                     right: prop.value
-                                }
-                            }
-                            constructorBody.push(initAttr);
-                            classBody.body.push(prop.key);
+                                },
+                            });
                         }
                     });
                 }
             });
 
             programBody.push(exportDefaultDeclaration);
-
+            if(expInit !== null) {
+                programBody.push(expInit);
+            }
         });
     });
     return lang.obj.merge(node, {body: programBody});
